@@ -63,6 +63,7 @@ class Admins::ActivitiesController < Admins::BaseController
 
   def activity_params
     params.require(:activity).permit(:name,
+                                     :website_address,
                                      :description)
   end
 

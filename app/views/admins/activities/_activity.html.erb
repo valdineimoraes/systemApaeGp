@@ -1,5 +1,7 @@
 <tr>
   <td><%= activity.name %></td>
+  <td><%= link_to activity.website_address, activity.website_address, target: '_blank' %></td>
+
   <td>
     <%= link_to [:admins, activity], method: :delete, data: {confirm: t('prompt.confirm')} do %>
       <span class="icon mr-3">

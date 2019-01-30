@@ -1,7 +1,8 @@
 <tr>
   <td><%= professor.id %></td>
   <td><%= professor.name %></td>
-  <td><%= l(professor.created_at, format: :long) %></td>
+  <td><%= professor.phone %></td>
+  <td><%= professor.email %></td>
   <td>
     <%= link_to [:admins, professor], method: :delete, data: {confirm: t('prompt.confirm')} do %>
       <span class="icon mr-3">

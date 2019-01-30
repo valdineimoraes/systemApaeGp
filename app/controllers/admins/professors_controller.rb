@@ -6,6 +6,7 @@ class Admins::ProfessorsController < Admins::BaseController
                  only: [:new, :create]
 
   def index
+    @professors = Professor.all
     @professors = Professor.order(name: :asc).page params[:page]
   end
 
@@ -63,6 +64,7 @@ class Admins::ProfessorsController < Admins::BaseController
     params.require(:professor).permit(:name,
                                       :lattes,
                                       :occupation_area,
+                                      :phone,
                                       :gender,
                                       :image,
                                       :image_cache,

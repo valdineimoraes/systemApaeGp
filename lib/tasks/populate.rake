@@ -66,6 +66,7 @@ namespace :db do
 
     10.times do
       Professor.create!(name: Faker::Name.name, lattes: Faker::Internet.url,
+                        phone: Faker::PhoneNumber.cell_phone,
                         image: FileSpecHelper.image,
                         occupation_area: Faker::Job.title, email: Faker::Internet.email,
                         gender: Professor.genders.values.sample,
@@ -85,6 +86,7 @@ namespace :db do
     10.times do
       Activity.find_or_create_by!(
         name: Faker::Job.unique.title,
+        website_address: Faker::Internet.url,
         description: Faker::Lorem.paragraph(2)
       )
     end
@@ -104,13 +106,13 @@ namespace :db do
 
     3.times do |m_index|
       matrix = Matrix.create!(name: Faker::DragonBall.unique.character)
-      10.times do |p_index|
+      2.times do |p_index|
         period = Period.find_or_create_by!(
           name: "#{Faker::Company.suffix}-#{m_index}#{p_index}",
           matrix: matrix
         )
 
-        10.times do |d_index|
+        2.times do |d_index|
           Discipline.find_or_create_by!(
             name: "#{Faker::Company.industry}-#{m_index}#{p_index}-#{d_index}",
             code: Faker::Code.nric(27, 34),
@@ -160,55 +162,6 @@ namespace :db do
     end
 
     start_date = Faker::Date.between(1.year.ago, 5.months.ago)
-    tcc_activity = Activity.find_or_create_by!(
-      name: I18n.t('helpers.tcc'),
-      description: Faker::Lorem.paragraph(2)
-    )
-    trainee_activity = Activity.find_or_create_by!(
-      name: I18n.t('helpers.trainee'),
-      description: Faker::Lorem.paragraph(2)
-    )
-    monitor_activity = Activity.find_or_create_by!(
-      name: I18n.t('helpers.monitor'),
-      description: Faker::Lorem.paragraph(2)
-    )
-    extension_activity = Activity.find_or_create_by!(
-      name: I18n.t('helpers.extension_activity'),
-      description: Faker::Lorem.paragraph(2)
-    )
-    StaticPage.find_or_create_by!(
-      title: I18n.t('helpers.trainee'),
-      sub_title: 'Vagas de Estágio',
-      content: '## conteudo',
-      permalink: 'estagio',
-      activity_id: trainee_activity,
-      fixed: true
-    )
-
-    StaticPage.find_or_create_by!(
-      title: I18n.t('helpers.monitor'),
-      sub_title: 'Vagas de Monitoria',
-      content: '## conteudo',
-      permalink: 'monitor',
-      activity_id: monitor_activity,
-      fixed: true
-    )
-
-    StaticPage.find_or_create_by!(
-      title: I18n.t('helpers.tcc'),
-      content: '## conteudo',
-      permalink: 'tcc',
-      activity_id: tcc_activity,
-      fixed: true
-    )
-
-    StaticPage.find_or_create_by!(
-      title: I18n.t('helpers.extension_activity'),
-      content: '## conteudo',
-      permalink: 'extension_activity',
-      activity_id: extension_activity,
-      fixed: true
-    )
 
     StaticPage.find_or_create_by!(
       title: I18n.t('helpers.instruction_subscription'),
@@ -231,27 +184,7 @@ namespace :db do
       fixed: true
     )
 
-    ActivityProfessor.find_or_create_by!(
-      professor: Professor.all.sample,
-      activity: trainee_activity,
-      start_date: start_date
-    )
-    ActivityProfessor.find_or_create_by!(
-      professor: Professor.all.sample,
-      activity: monitor_activity,
-      start_date: start_date
-    )
-    ActivityProfessor.find_or_create_by!(
-      professor: Professor.all.sample,
-      activity: tcc_activity,
-      start_date: start_date
-    )
-    ActivityProfessor.find_or_create_by!(
-      professor: Professor.all.sample,
-      activity: extension_activity,
-      start_date: start_date
-    )
-    galleries = %w[course static_page]
+   galleries = %w[course static_page]
     galleries.each do |context|
       Gallery.create!(context: context)
     end

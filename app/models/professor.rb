@@ -11,8 +11,9 @@ class Professor < ApplicationRecord
   has_many :discipline_monitors, through: :discipline_monitor_professors
 
   validates :name, presence: true
-  validates :lattes, presence: true, format: { with: URI::DEFAULT_PARSER.make_regexp }
-  validates :occupation_area, presence: true
+  #validates :lattes, presence: true, format: { with: URI::DEFAULT_PARSER.make_regexp }
+  #validates :occupation_area, presence: true
+  validates :phone, presence: true
   validates :email, presence: true, format: { with: Devise.email_regexp }
   validates :professor_title, presence: true
   validates :professor_category, presence: true

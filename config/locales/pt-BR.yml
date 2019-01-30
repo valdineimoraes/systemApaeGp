@@ -51,10 +51,10 @@ pt-BR:
   breadcrumbs:
     homepage: 'Página Inicial'
     academics:
-      name: 'Acadêmicos'
-      new: 'Novo Acadêmico'
-      edit: 'Editar Acadêmico %{name}'
-      show: 'Visualizar Acadêmico %{name}'
+      name: 'Alunos'
+      new: 'Novo Aluno'
+      edit: 'Editar Aluno %{name}'
+      show: 'Visualizar Aluno %{name}'
     activities:
       name: 'Atividades'
       new: 'Nova Atividade'
@@ -71,7 +71,7 @@ pt-BR:
       edit: 'Editar Categoria %{name}'
       show: 'Visualizar Categoria %{name}'
     companies:
-      name: 'Empresas'
+      name: 'Empresas Amiga'
       new: 'Nova Empresa'
       edit: 'Editar Empresa %{name}'
       show: 'Visualizar Empresa %{name}'
@@ -137,7 +137,7 @@ pt-BR:
     instruction_subscription: 'Instrução de matricula'
     be_our_student: 'Seja nosso aluno'
     extension_activity: 'Atividade de extensão'
-    course_about: 'O Curso'
+    course_about: 'Sobre a APAE'
   enums:
     genders:
       male: 'Masculino'
@@ -240,6 +240,7 @@ pt-BR:
       professor:
         <<: *commons
         gender: 'Sexo'
+        phone: 'Telefone'
         occupation_area: 'Área de atuação'
         professor_title: 'Título'
         professor_category: 'Tipo'

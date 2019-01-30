@@ -1,12 +1,14 @@
 <%= simple_form_for [:admins, @professor] do |f| %>
-  
+
   <div class="form-row">
     <div class="col-sm-9">
       <%= f.input :name, autofocus: true %>
       <%= f.input :email %>
+      <div class="col-sm-6">
+        <%= f.input :phone %>
+      </div>
       <%= f.input :gender, as: :radio_buttons, collection: Professor.human_genders,
-          item_wrapper_class: 'inline custom-control custom-radio custom-control-inline' %>
-
+                  item_wrapper_class: 'inline custom-control custom-radio custom-control-inline' %>
     </div>
 
     <div class="col-sm-3">
@@ -24,17 +26,16 @@
       </div>
     </div>
   </div>
-    
-  <%= f.input :lattes %>
+
 
   <div class="form-row">
     <div class="col-sm-6">
       <%= f.association :professor_title,
-        prompt: t('prompt.select.m', name: 'título') %>
+                        prompt: t('prompt.select.m', name: 'título') %>
     </div>
     <div class="col-sm-6">
       <%= f.association :professor_category,
-        prompt: t('prompt.select.m', name: 'tipo') %>
+                        prompt: t('prompt.select.m', name: 'tipo') %>
     </div>
   </div>
 

@@ -2,8 +2,9 @@
 
 <div class="card card-profile">
   <div class="card-body text-center">
-    <h2 class="mb-5"> <%= @activity.name %></h2>
-    <p class="mb-5"><%= @activity.description %></p>
+    <h2 class="mb-5"><%= @activity.name %></h2>
+    <p class="mb-5">Descrição: <%= @activity.description %></p>
+    <p class="mb-5">Link: <%= link_to @activity.website_address, @activity.website_address, target: '_blank'  %></p>
     <%= render 'activity_professors' %>
   </div>
 </div>
