@@ -184,7 +184,7 @@ namespace :db do
       fixed: true
     )
 
-   galleries = %w[course static_page]
+    galleries = %w[course static_page]
     galleries.each do |context|
       Gallery.create!(context: context)
     end

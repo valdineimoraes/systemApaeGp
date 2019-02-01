@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'public discipline monitor', type: :feature do
   let!(:discipline_monitors) { create_list(:discipline_monitor, 2) }
-  describe '#index' do
 
+  describe '#index' do
     it 'show all discipline monitors' do
       visit discipline_monitors_path
 

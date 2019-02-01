@@ -248,6 +248,25 @@ pt-BR:
         <<: *commons
         graduated: 'Graduado'
         contact: 'Contato'
+        registration: 'Matrícula'
+        entry_date: 'Ingresso'
+        cod_sere: 'Código SERE'
+        birth_date: 'Data de Nascimento'
+        birth_certificate: 'Certidão de Nasc n°'
+        rg_student: 'RG do Aluno'
+        expedition_rg_student: 'Data Expedição RG'
+        cpf_student: 'CPF do Aluno'
+        card_sus_number: 'Cartão SUS'
+        breed: 'Raça'
+        phone_student: 'Telefone'
+        contact: 'Fone/Contato'
+        naturalness: 'Naturalidade'
+        street: 'Endereço (nome da rua e número)'
+        neighborhood: 'Bairro'
+        reference_point: 'Ponto de Referência'
+        cep_student: 'CEP'
+        family_income: 'Renda Familiar'
+
       activity:
         <<: *commons
       activity_professor:

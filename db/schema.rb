@@ -16,9 +16,26 @@ ActiveRecord::Schema.define(version: 2019_01_30_140227) do
   enable_extension "plpgsql"
 
   create_table "academics", force: :cascade do |t|
+    t.string "registration"
+    t.date "entry_date"
+    t.integer "cod_sere"
     t.string "name"
     t.string "image"
+    t.date "birth_date"
+    t.string "birth_certificate"
+    t.string "rg_student"
+    t.date "expedition_rg_student", default: ""
+    t.integer "cpf_student"
+    t.string "card_sus_number"
+    t.string "breed"
+    t.string "phone_student"
     t.string "contact"
+    t.string "naturalness"
+    t.string "street"
+    t.string "neighborhood"
+    t.string "reference_point"
+    t.string "cep_student"
+    t.string "family_income"
     t.boolean "graduated", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

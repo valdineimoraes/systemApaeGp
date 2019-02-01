@@ -1,12 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe 'home page', type: :feature do
-  let!(:discipline_monitors) { create_list(:discipline_monitor, 4, year: Time.zone.now.year,
-                                            semester: DisciplineMonitor.current_semester) }
-  let!(:efetive_professors) { create_list(:professor, 2,
-                                          professor_category: create(:professor_category, name: 'Efetivo')) }
-  let!(:temporary_professors) { create_list(:professor, 2,
-                                            professor_category: create(:professor_category, name: 'Temporário')) }
+  let!(:discipline_monitors) do
+    create_list(:discipline_monitor, 4, year: Time.zone.now.year,
+                                        semester: DisciplineMonitor.current_semester)
+  end
+  let!(:efetive_professors) do
+    create_list(:professor, 2,
+                professor_category: create(:professor_category, name: 'Efetivo'))
+  end
+  let!(:temporary_professors) do
+    create_list(:professor, 2,
+                professor_category: create(:professor_category, name: 'Temporário'))
+  end
   let!(:companies) { create_list(:company, 2) }
   let!(:trainees) { create_list(:trainee, 3) }
   let!(:faqs) { create_list(:faq, 3) }
@@ -17,7 +23,6 @@ RSpec.describe 'home page', type: :feature do
     end
 
     it 'show all discipline monitors' do
-
       discipline_monitors.each do |m|
         expect(page).to have_content(m.year)
         expect(page).to have_content(m.description)
@@ -27,12 +32,10 @@ RSpec.describe 'home page', type: :feature do
         expect(page).to have_content(m.monitor_type.name)
         expect(page).to have_content(m.disciplines.first.name)
         expect(page).to have_content(m.professors.first.name)
-
       end
     end
 
     it 'show all efetive professors' do
-
       efetive_professors.each do |professor|
         expect(page).to have_content(professor.name)
         expect(page).to have_content(professor.email)
@@ -69,7 +72,6 @@ RSpec.describe 'home page', type: :feature do
       trainees.each do |trainee|
         expect(page).to have_content(trainee.title)
         expect(page).to have_content(trainee.description)
-
 
         expect(page).to have_content(trainee.company.name)
         expect(page).to have_content(trainee.trainee_status.name)
