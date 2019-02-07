@@ -65,7 +65,7 @@ namespace :db do
     end
 
     10.times do
-      Professor.create!(name: Faker::Name.name, lattes: Faker::Internet.url,
+      Professor.create!(name: Faker::Name.name,
                         phone: Faker::PhoneNumber.cell_phone,
                         image: FileSpecHelper.image,
                         occupation_area: Faker::Job.title, email: Faker::Internet.email,

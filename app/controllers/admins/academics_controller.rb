@@ -1,5 +1,6 @@
 class Admins::AcademicsController < Admins::BaseController
   before_action :set_academic, only: [:edit, :update, :destroy]
+  before_action :load_date, only: [:new, :create, :edit, :update]
 
   add_breadcrumb I18n.t('breadcrumbs.academics.name'), :admins_academics_path
   add_breadcrumb I18n.t('breadcrumbs.academics.new'),
@@ -58,12 +59,33 @@ class Admins::AcademicsController < Admins::BaseController
   def academic_params
     params.require(:academic).permit(:name,
                                      :image,
+                                     :registration,
+                                     :entry_date,
+                                     :cod_sere,
+                                     :birth_date,
+                                     :birth_certificate,
+                                     :rg_student,
+                                     :expedition_rg_student,
+                                     :cpf_student,
+                                     :card_sus_number,
+                                     :breed,
+                                     :phone_student,
                                      :contact,
+                                     :naturalness,
+                                     :street,
+                                     :neighborhood,
+                                     :reference_point,
+                                     :cep_student,
+                                     :family_income,
                                      :image_cache,
                                      :graduated)
   end
 
   def set_academic
     @academic = Academic.find(params[:id])
+  end
+
+  def load_date
+    @years = (1930..Time.zone.today.year).to_a.reverse
   end
 end

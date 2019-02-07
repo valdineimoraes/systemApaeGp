@@ -16,8 +16,9 @@
 
       <%= f.input :remember_me, as: :checkbox_tabler if devise_mapping.rememberable? %>
 
-      <div class="form-footer">
-        <%= f.button :submit, 'Entrar', class: 'btn btn-primary btn-block' %>
+      <div class="form-footer text-center">
+        <%= f.button :submit, 'Entrar', class: 'btn btn-outline-primary btn-lg active' %>
+        <%= link_to  'Voltar', root_path, class: 'btn btn-outline-secondary btn-lg active' %>
       </div>
     <% end %>
 

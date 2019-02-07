@@ -269,6 +269,7 @@ pt-BR:
 
       activity:
         <<: *commons
+        website_address: 'Endereço URL da Atividade'
       activity_professor:
         professor: 'Professor'
         activity: 'Atividade docente'

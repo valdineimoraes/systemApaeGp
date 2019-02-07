@@ -99,6 +99,6 @@ class Admins::DisciplineMonitorsController < Admins::BaseController
   end
 
   def load_date
-    @years = (2011..Time.zone.today.year).to_a.reverse
+    @years = (1930..Time.zone.today.year).to_a.reverse
   end
 end
